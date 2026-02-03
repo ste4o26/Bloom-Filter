@@ -98,20 +98,6 @@ class BloomFilter:
             index = self._hash(element, seed) % len(self.array)
             self.array[index] = True
 
-    def validate(self) -> None:
-        """Validates the filter before saving it"""
-        class_name = self.__class__.__name__
-        if not self.path.strip():
-            raise ValueError(f"{class_name} path field is required!")
-        if len(self.array) == 0:
-            raise ValueError(
-                f"{class_name} bit array should not be empty!",
-            )
-        if not self.hash_config.hash_function_import_path:
-            raise ValueError(
-                f"{class_name} hash function is required!",
-            )
-
     def _hash(self, element: ElementType, seed: int) -> int:
         """Double hashes the input for better distribution"""
         if not isinstance(element, bytes):
