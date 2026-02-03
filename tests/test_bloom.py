@@ -5,7 +5,7 @@ import numpy
 
 from bloom import BloomFilter, HashConfig
 from constants import HashFunc
-from lib import murmur_hash
+from hash_lib import murmur_hash
 from utils import md5, sha256
 
 
